@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block contenido %}
+<form method="get" class="search">
+  <input type="search" name="q" placeholder="Buscar por nombre o correo..." value="{{ q }}">
+  <button class="btn" type="submit">Buscar</button>
+</form>
+
+{% if not contactos %}
+  <p class="empty">No hay contactos para mostrar.</p>
+{% else %}
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Nombre</th><th>Correo</th><th>Teléfono</th><th>Acciones</th></tr>
+    </thead>
+    <tbody>
+    {% for c in contactos %}
+      <tr>
+        <td>{{ c.nombre }}</td>
+        <td>{{ c.email }}</td>
+        <td>{{ c.telefono or '' }}</td>
+        <td class="actions">
+          <a class="btn small" href="{{ url_for('formulario', id=c.id) }}">Editar</a>
+          <form method="post" action="{{ url_for('eliminar', id=c.id) }}"
+                onsubmit="return confirm('¿Eliminar este contacto?');">
+            <button class="btn small danger" type="submit">Eliminar</button>
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+{% endblock %}

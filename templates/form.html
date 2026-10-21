@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h1>{{ 'Editar contacto' if editando else 'Nuevo contacto' }}</h1>
+
+<form method="post" class="card form">
+  <label>Nombre
+    <input type="text" name="nombre" required maxlength="100" value="{{ contacto.nombre }}">
+  </label>
+
+  <label>Correo electrónico
+    <input type="email" name="email" required maxlength="120" value="{{ contacto.email }}">
+  </label>
+
+  <label>Teléfono
+    <input type="tel" name="telefono" maxlength="20" value="{{ contacto.telefono or '' }}">
+  </label>
+
+  <div class="form-actions">
+    <button class="btn" type="submit">Guardar</button>
+    <a class="btn secondary" href="{{ url_for('index') }}">Cancelar</a>
+  </div>
+</form>
+{% endblock %}

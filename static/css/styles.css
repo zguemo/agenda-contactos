@@ -1,0 +1,45 @@
+:root {
+  --bg: #f4f6fb; --card: #fff; --text: #1f2937; --muted: #6b7280;
+  --primary: #4f46e5; --primary-dark: #4338ca; --danger: #dc2626; --border: #e5e7eb;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+       background: var(--bg); color: var(--text); }
+.container { max-width: 900px; margin: 0 auto; padding: 1rem; }
+.topbar { background: var(--primary); color: #fff; }
+.topbar .container { display: flex; justify-content: space-between; align-items: center; }
+.brand { color: #fff; text-decoration: none; font-weight: 700; font-size: 1.2rem; }
+
+.btn { display: inline-block; padding: .55rem 1rem; border: 0; border-radius: 8px;
+       background: var(--primary); color: #fff; text-decoration: none; cursor: pointer;
+       font-size: .95rem; }
+.btn:hover { background: var(--primary-dark); }
+.topbar .btn { background: #fff; color: var(--primary); }
+.btn.secondary { background: var(--muted); }
+.btn.danger { background: var(--danger); }
+.btn.small { padding: .35rem .7rem; font-size: .85rem; }
+
+.search { display: flex; gap: .5rem; margin: 1rem 0; }
+.search input { flex: 1; }
+input { width: 100%; padding: .6rem .8rem; border: 1px solid var(--border);
+        border-radius: 8px; font-size: 1rem; }
+input:focus { outline: 2px solid var(--primary); border-color: transparent; }
+
+.table-wrap { overflow-x: auto; background: var(--card); border-radius: 12px;
+              box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: .8rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+th { background: #eef0f8; font-size: .85rem; text-transform: uppercase; color: var(--muted); }
+.actions { display: flex; gap: .4rem; }
+.actions form { margin: 0; }
+
+.card { background: var(--card); padding: 1.5rem; border-radius: 12px;
+        box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+.form label { display: block; margin-bottom: 1rem; font-weight: 600; }
+.form input { margin-top: .3rem; font-weight: 400; }
+.form-actions { display: flex; gap: .5rem; }
+
+.alert { padding: .7rem 1rem; border-radius: 8px; }
+.alert.ok { background: #dcfce7; color: #166534; }
+.alert.error { background: #fee2e2; color: #991b1b; }
+.empty { text-align: center; color: var(--muted); padding: 2rem; }
